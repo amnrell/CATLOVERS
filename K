@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cat Lovers Haven</title>
+  <style>
+    :root {
+      --bg: #0f172a;        /* slate-900 */
+      --card: #111827;      /* gray-900 */
+      --muted: #94a3b8;     /* slate-400 */
+      --text: #e5e7eb;      /* gray-200 */
+      --accent: #fbbf24;    /* amber-400 */
+      --accent-600: #d97706;/* amber-600 */
+      --ring: #22d3ee;      /* cyan-400 */
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell,
+                   Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 800px at 20% -10%, #1f2937 0%, var(--bg) 40%);
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 48px 20px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: 0.4px;
+    }
+
+    .tagline { color: var(--muted); margin-bottom: 24px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
+      padding: 20px;
+      max-width: 1100px;
+      margin: 0 auto 60px;
+      width: 100%;
+    }
+
+    .card {
+      grid-column: span 12;
+      background: linear-gradient(180deg, #0b1220 0%, var(--card) 100%);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 28px 80px rgba(0,0,0,0.45); }
+
+    @media (min-width: 700px) {
+      .card { grid-column: span 6; }
+    }
+    @media (min-width: 980px) {
+      .card { grid-column: span 4; }
+    }
+
+    .media { position: relative; aspect-ratio: 16/11; background: #0b1020; }
+    .media img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      filter: saturate(1.08) contrast(1.03);
+    }
+    .label {
+      position: absolute; left: 14px; top: 12px; padding: 6px 10px; font-size: 12px;
+      background: rgba(0,0,0,0.55); backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.12); border-radius: 999px; color: #fff;
+    }
+
+    .body { padding: 16px 16px 18px; }
+    .name { font-size: 20px; font-weight: 700; margin: 0 0 6px; }
+    .desc { color: var(--muted); margin: 0 0 12px; min-height: 2lh; }
+
+    .rate-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+    .stars { display: inline-flex; gap: 2px; user-select: none; }
+    .star {
+      appearance: none; border: none; background: none; padding: 2px 3px; cursor: pointer;
+      font-size: 24px; line-height: 1; filter: drop-shadow(0 1px 0 rgba(0,0,0,0.2));
+      transition: transform .08s ease;
+    }
+    .star:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; border-radius: 6px; }
+    .star:hover { transform: scale(1.08); }
+    .star[data-active="true"] { color: var(--accent); }
+    .star[data-active="true"][data-locked="true"] { text-shadow: 0 0 10px rgba(251,191,36,.3); }
+
+    .your-rating { font-size: 14px; color: var(--muted); }
+    .rate-hint { font-size: 12px; color: var(--muted); opacity: .85; }
+
+    footer { text-align: center; color: var(--muted); padding: 24px 12px 50px; }
+
+    .btn-reset {
+      margin-left: auto; font-size: 12px; color: #a5b4fc; background: none; border: none; cursor: pointer;
+      padding: 4px 6px; border-radius: 6px; opacity: .9;
+    }
+    .btn-reset:hover { text-decoration: underline; opacity: 1; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Cat Lovers Haven</h1>
+    <p class="tagline">Meet Luna, Max, and Mochi — then tap the stars to rate each cutie!</p>
+  </header>
+
+  <!--
+    📷 IMAGE NOTES
+    - Replace the src URLs with your own photos to make it personal.
+    - If you add local files, create an /images folder and use:
+        images/luna.jpg, images/max.jpg, images/mochi.jpg
+    - The onerror handler falls back to a built-in SVG placeholder if the URL/file is missing.
+  -->
+
+  <main class="grid" id="cats">
+    <!-- LUNA -->
+    <article class="card" data-cat="luna">
+      <div class="media">
+        <span class="label">Luna</span>
+        <img alt="Luna the cat — adorable and curious"
+             src="https://placekitten.com/420/280"
+             onerror="this.onerror=null; this.src=placeholder('Luna');" />
+      </div>
+      <div class="body">
+        <h2 class="name">Luna</h2>
+        <p class="desc">Gentle purr-machine who guards the sunbeams.</p>
+        <div class="rate-row">
+          <div class="stars" role="radiogroup" aria-label="Rate Luna">
+            <!-- stars injected by JS -->
+          </div>
+          <span class="your-rating" aria-live="polite">Your rating: —</span>
+          <button class="btn-reset" type="button" title="Reset rating">Reset</button>
+        </div>
+        <div class="rate-hint">Tip: Hover then click a star. Changes are saved on this device.</div>
+      </div>
+    </article>
+
+    <!-- MAX -->
+    <article class="card" data-cat="max">
+      <div class="media">
+        <span class="label">Max</span>
+        <img alt="Max the cat — playful and loyal"
+             src="https://placekitten.com/421/280"
+             onerror="this.onerror=null; this.src=placeholder('Max');" />
+      </div>
+      <div class="body">
+        <h2 class="name">Max</h2>
+        <p class="desc">Certified zoomie champion and treat connoisseur.</p>
+        <div class="rate-row">
+          <div class="stars" role="radiogroup" aria-label="Rate Max"></div>
+          <span class="your-rating" aria-live="polite">Your rating: —</span>
+          <button class="btn-reset" type="button" title="Reset rating">Reset</button>
+        </div>
+        <div class="rate-hint">Add your own photo later: images/max.jpg</div>
+      </div>
+    </article>
+
+    <!-- MOCHI -->
+    <article class="card" data-cat="mochi">
+      <div class="media">
+        <span class="label">Mochi</span>
+        <img alt="Mochi the cat — cuddly and curious"
+             src="https://placekitten.com/422/280"
+             onerror="this.onerror=null; this.src=placeholder('Mochi');" />
+      </div>
+      <div class="body">
+        <h2 class="name">Mochi</h2>
+        <p class="desc">Nap specialist with expert biscuit-making skills.</p>
+        <div class="rate-row">
+          <div class="stars" role="radiogroup" aria-label="Rate Mochi"></div>
+          <span class="your-rating" aria-live="polite">Your rating: —</span>
+          <button class="btn-reset" type="button" title="Reset rating">Reset</button>
+        </div>
+        <div class="rate-hint">Add your own photo later: images/mochi.jpg</div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <small>Built with ❤️ for cat people. Ratings are saved locally (per device).</small>
+  </footer>
+
+  <script>
+    // Simple inline SVG placeholder — keeps the page cute even without real photos
+    function placeholder(name) {
+      const svg = encodeURIComponent(`
+        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 550'>
+          <defs>
+            <linearGradient id='g' x1='0' x2='1'>
+              <stop offset='0' stop-color='#1f2937'/>
+              <stop offset='1' stop-color='#0b1020'/>
+            </linearGradient>
+          </defs>
+          <rect width='100%' height='100%' fill='url(#g)'/>
+          <g fill='#e5e7eb' font-family='system-ui, -apple-system, Segoe UI, Roboto' text-anchor='middle'>
+            <text x='400' y='260' font-size='56' font-weight='700'>${name}</text>
+            <text x='400' y='315' font-size='22' opacity='.7'>Add a cute photo in /images</text>
+          </g>
+          <g fill='#fbbf24' opacity='.2'>
+            <circle cx='120' cy='100' r='20'/>
+            <circle cx='730' cy='70' r='16'/>
+            <circle cx='700' cy='460' r='24'/>
+            <circle cx='90' cy='480' r='18'/>
+          </g>
+        </svg>`);
+      return `data:image/svg+xml;charset=utf-8,${svg}`;
+    }
+
+    const STAR_EMPTY = '☆';
+    const STAR_FULL  = '★';
+
+    function buildStars(container, current) {
+      container.innerHTML = '';
+      for (let i = 1; i <= 5; i++) {
+        const btn = document.createElement('button');
+        btn.className = 'star';
+        btn.type = 'button';
+        btn.setAttribute('role', 'radio');
+        btn.setAttribute('aria-label', `${i} star${i>1?'s':''}`);
+        btn.dataset.value = String(i);
+        btn.textContent = i <= current ? STAR_FULL : STAR_EMPTY;
+        btn.dataset.active = i <= current ? 'true' : 'false';
+        container.appendChild(btn);
+      }
+    }
+
+    function initRating(card) {
+      const catId = card.dataset.cat; // e.g., 'luna'
+      const starsEl = card.querySelector('.stars');
+      const yourEl = card.querySelector('.your-rating');
+      const resetBtn = card.querySelector('.btn-reset');
+      const storageKey = `rating-${catId}`;
+
+      let rating = parseInt(localStorage.getItem(storageKey) || '0', 10);
+      if (isNaN(rating)) rating = 0;
+      buildStars(starsEl, rating);
+      updateLabel();
+
+      starsEl.addEventListener('mouseover', (e) => {
+        const btn = e.target.closest('.star');
+        if (!btn) return;
+        const preview = parseInt(btn.dataset.value, 10);
+        [...starsEl.children].forEach((b, i) => {
+          const idx = i + 1;
+          b.textContent = idx <= preview ? STAR_FULL : STAR_EMPTY;
+          b.dataset.active = idx <= preview ? 'true' : 'false';
+        });
+      });
+
+      starsEl.addEventListener('mouseleave', () => {
+        buildStars(starsEl, rating);
+      });
+
+      starsEl.addEventListener('click', (e) => {
+        const btn = e.target.closest('.star');
+        if (!btn) return;
+        rating = parseInt(btn.dataset.value, 10);
+        localStorage.setItem(storageKey, String(rating));
+        buildStars(starsEl, rating);
+        lockGlow();
+        updateLabel();
+      });
+
+      resetBtn.addEventListener('click', () => {
+        rating = 0;
+        localStorage.removeItem(storageKey);
+        buildStars(starsEl, rating);
+        updateLabel();
+      });
+
+      function updateLabel() {
+        yourEl.textContent = rating ? `Your rating: ${rating}/5` : 'Your rating: —';
+      }
+
+      function lockGlow() {
+        [...starsEl.children].forEach((b, i) => {
+          const idx = i + 1;
+          b.dataset.locked = idx <= rating ? 'true' : 'false';
+        });
+      }
+
+      lockGlow();
+    }
+
+    document.querySelectorAll('.card').forEach(initRating);
+  </script>
+</body>
+</html>
