@@ -385,7 +385,8 @@
 
     // --- Supabase config ---
     const SUPABASE_URL = window.SUPABASE_URL || 'https://YOUR-PROJECT-REF.supabase.co';
-    const SUPABASE_ANON_KEY = window.SUPABASE_ANON_KEY || 'YOUR-ANON-PUBLIC-KEY';
+const SUPABASE_ANON_KEY = window.SUPABASE_ANON_KEY || 'YOUR-ANON-PUBLIC-KEY';
+
 
     function supabaseHeaders() {
       return { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` };
