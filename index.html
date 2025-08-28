@@ -123,7 +123,7 @@
     <article class="card" data-cat="luna">
       <div class="media">
         <span class="label">Luna</span>
-        <svg viewBox="0 0 800 550" role="img" aria-label="Luna the cat — adorable and curious">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" role="img" aria-label="Luna the cat — adorable and curious">
           <defs>
             <linearGradient id="bgLuna" x1="0" x2="1">
               <stop offset="0" stop-color="#2b2f55"/>
@@ -180,7 +180,7 @@
     <article class="card" data-cat="max">
       <div class="media">
         <span class="label">Max</span>
-        <svg viewBox="0 0 800 550" role="img" aria-label="Max the cat — playful and loyal">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" role="img" aria-label="Max the cat — playful and loyal">
           <defs>
             <linearGradient id="bgMax" x1="0" x2="1">
               <stop offset="0" stop-color="#2c1f11"/>
@@ -197,6 +197,29 @@
           <polygon points="550,205 590,135 475,195" fill="#ffe3bf"/>
           <!-- Tabby stripes -->
           <g fill="#f4a259" opacity="0.75">
+            <path d="M355 210 l-22 35 l32 -10z"/>
+            <path d="M445 210 l22 35 l-32 -10z"/>
+            <rect x="370" y="235" width="60" height="10" rx="4"/>
+            <rect x="360" y="255" width="80" height="8" rx="4"/>
+          </g>
+          <!-- Eyes -->
+          <ellipse cx="345" cy="300" rx="34" ry="44" fill="#1b1006"/>
+          <ellipse cx="455" cy="300" rx="34" ry="44" fill="#1b1006"/>
+          <circle cx="336" cy="288" r="8" fill="#fff"/>
+          <circle cx="446" cy="288" r="8" fill="#fff"/>
+          <!-- Nose & mouth -->
+          <polygon points="400,320 388,338 412,338" fill="#ffb3b3"/>
+          <path d="M388 345 Q400 360 412 345" fill="none" stroke="#ffb3b3" stroke-width="6" stroke-linecap="round"/>
+          <!-- Whiskers -->
+          <g stroke="#f4a259" stroke-linecap="round" stroke-width="6" opacity="0.9">
+            <line x1="280" y1="320" x2="340" y2="328"/>
+            <line x1="280" y1="340" x2="340" y2="340"/>
+            <line x1="520" y1="320" x2="460" y2="328"/>
+            <line x1="520" y1="340" x2="460" y2="340"/>
+          </g>
+          <ellipse cx="320" cy="340" rx="24" ry="12" fill="#ff9f7a" opacity="0.5"/>
+          <ellipse cx="480" cy="340" rx="24" ry="12" fill="#ff9f7a" opacity="0.5"/>
+        </svg>
       </div>
       <div class="body">
         <h2 class="name">Max</h2>
@@ -214,9 +237,37 @@
     <article class="card" data-cat="mochi">
       <div class="media">
         <span class="label">Mochi</span>
-        <img alt="Mochi the cat — cuddly and curious"
-             src="https://placekitten.com/422/280"
-             onerror="this.onerror=null; this.src=placeholder('Mochi');" />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" role="img" aria-label="Mochi the cat — cuddly and curious">
+          <defs>
+            <linearGradient id="bgMochi" x1="0" x2="1">
+              <stop offset="0" stop-color="#1d2b2a"/>
+              <stop offset="1" stop-color="#0e1817"/>
+            </linearGradient>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#bgMochi)"/>
+          <ellipse cx="400" cy="425" rx="160" ry="40" fill="#08100f" opacity="0.55"/>
+          <ellipse cx="400" cy="380" rx="155" ry="120" fill="#f2efe1" stroke="#d4cdb7" stroke-width="6"/>
+          <circle cx="400" cy="300" r="150" fill="#faf6e9" stroke="#d4cdb7" stroke-width="8"/>
+          <polygon points="240,210 200,120 330,190" fill="#faf6e9" stroke="#d4cdb7" stroke-width="8"/>
+          <polygon points="560,210 600,120 470,190" fill="#faf6e9" stroke="#d4cdb7" stroke-width="8"/>
+          <polygon points="250,205 210,135 325,195" fill="#fff8e8"/>
+          <polygon points="550,205 590,135 475,195" fill="#fff8e8"/>
+          <!-- Eyes (smiling)> -->
+          <path d="M325 300 q20 -20 40 0" fill="none" stroke="#1a1a1a" stroke-width="10" stroke-linecap="round"/>
+          <path d="M435 300 q20 -20 40 0" fill="none" stroke="#1a1a1a" stroke-width="10" stroke-linecap="round"/>
+          <!-- Nose & mouth -->
+          <polygon points="400,320 388,338 412,338" fill="#ffc9c9"/>
+          <path d="M388 345 q12 12 24 0" fill="none" stroke="#ffc9c9" stroke-width="6" stroke-linecap="round"/>
+          <!-- Whiskers -->
+          <g stroke="#d4cdb7" stroke-linecap="round" stroke-width="6" opacity="0.9">
+            <line x1="280" y1="320" x2="340" y2="328"/>
+            <line x1="280" y1="340" x2="340" y2="340"/>
+            <line x1="520" y1="320" x2="460" y2="328"/>
+            <line x1="520" y1="340" x2="460" y2="340"/>
+          </g>
+          <ellipse cx="320" cy="340" rx="24" ry="12" fill="#ffb5b5" opacity="0.45"/>
+          <ellipse cx="480" cy="340" rx="24" ry="12" fill="#ffb5b5" opacity="0.45"/>
+        </svg>
       </div>
       <div class="body">
         <h2 class="name">Mochi</h2>
@@ -234,9 +285,47 @@
     <article class="card" data-cat="venus">
       <div class="media">
         <span class="label">Venus</span>
-        <img alt="Venus the cat — elegant and sweet"
-             src="https://placekitten.com/423/280"
-             onerror="this.onerror=null; this.src=placeholder('Venus');" />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" role="img" aria-label="Venus the cat — elegant and sweet">
+          <defs>
+            <linearGradient id="bgVenus" x1="0" x2="1">
+              <stop offset="0" stop-color="#0b1020"/>
+              <stop offset="1" stop-color="#0b0f1a"/>
+            </linearGradient>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#bgVenus)"/>
+          <!-- Stars -->
+          <g fill="#fbbf24" opacity="0.6">
+            <circle cx="120" cy="80" r="3"/>
+            <circle cx="220" cy="130" r="2"/>
+            <circle cx="680" cy="90" r="3"/>
+            <circle cx="730" cy="160" r="2"/>
+            <circle cx="90" cy="210" r="2"/>
+          </g>
+          <ellipse cx="400" cy="425" rx="160" ry="40" fill="#04060e" opacity="0.55"/>
+          <ellipse cx="400" cy="380" rx="155" ry="120" fill="#343a55" stroke="#20253a" stroke-width="6"/>
+          <circle cx="400" cy="300" r="150" fill="#3c4262" stroke="#20253a" stroke-width="8"/>
+          <polygon points="240,210 200,120 330,190" fill="#3c4262" stroke="#20253a" stroke-width="8"/>
+          <polygon points="560,210 600,120 470,190" fill="#3c4262" stroke="#20253a" stroke-width="8"/>
+          <!-- Forehead star -->
+          <polygon points="400,230 410,255 437,257 414,274 420,300 400,286 380,300 386,274 363,257 390,255" fill="#fbbf24" opacity="0.9"/>
+          <!-- Eyes -->
+          <ellipse cx="345" cy="300" rx="34" ry="44" fill="#0d111a"/>
+          <ellipse cx="455" cy="300" rx="34" ry="44" fill="#0d111a"/>
+          <circle cx="336" cy="288" r="8" fill="#fff"/>
+          <circle cx="446" cy="288" r="8" fill="#fff"/>
+          <!-- Nose & mouth -->
+          <polygon points="400,320 388,338 412,338" fill="#ffb3c1"/>
+          <path d="M388 345 Q400 360 412 345" fill="none" stroke="#ffb3c1" stroke-width="6" stroke-linecap="round"/>
+          <!-- Whiskers -->
+          <g stroke="#b3bad6" stroke-linecap="round" stroke-width="6" opacity="0.9">
+            <line x1="280" y1="320" x2="340" y2="328"/>
+            <line x1="280" y1="340" x2="340" y2="340"/>
+            <line x1="520" y1="320" x2="460" y2="328"/>
+            <line x1="520" y1="340" x2="460" y2="340"/>
+          </g>
+          <ellipse cx="320" cy="340" rx="24" ry="12" fill="#ff9db3" opacity="0.4"/>
+          <ellipse cx="480" cy="340" rx="24" ry="12" fill="#ff9db3" opacity="0.4"/>
+        </svg>
       </div>
       <div class="body">
         <h2 class="name">Venus</h2>
